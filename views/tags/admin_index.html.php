@@ -21,6 +21,7 @@ $this->set([
 					<td class="flag"><?= $t('publ.?') ?>
 					<td><?= $t('Name') ?>
 					<td class="emphasize"><?= $t('Title') ?>
+					<td><?= $t('# dependent') ?>
 					<td class="date created"><?= $t('Created') ?>
 					<td class="actions">
 			</thead>
@@ -30,6 +31,7 @@ $this->set([
 					<td class="flag"><?= ($item->is_published ? '✓' : '×') ?>
 					<td><?= $item->name ?>
 					<td class="emphasize"><?= $item->title ?: '–' ?>
+					<td><?= ($depend = $item->depend('count')) ?: '–' ?>
 					<td class="date created">
 						<time datetime="<?= $this->date->format($item->created, 'w3c') ?>">
 							<?= $this->date->format($item->created, 'date') ?>

@@ -43,6 +43,9 @@ class Tags extends \base_core\models\Base {
 					'tags' => $entity->name
 				]
 			]);
+			if (!$results) {
+				continue;
+			}
 			if ($type === 'count') {
 				$depend += $results->count();
 			} else {
