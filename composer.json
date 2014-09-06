@@ -13,7 +13,6 @@
         "atelierdisko/base_core": "1.2.*",
         "davidpersson/li3_behaviors": "1.*",
         "atelierdisko/li3_taggable": "dev-master as 1.0.0-dev",
-        "uor/li3_flash_message": "dev-master as 1.0.0-dev",
         "atelierdisko/jsend": "0.5.*",
         "unionofrad/lithium": "dev-dev as 1.0.0-dev",
         "composer/installers": "~1.0"
