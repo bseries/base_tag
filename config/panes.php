@@ -17,7 +17,8 @@ extract(Message::aliases());
 
 Panes::register('authoring.tags', [
 	'title' => $t('Tags'),
-	'url' => ['controller' => 'tags', 'action' => 'index', 'library' => 'base_tag', 'admin' => true]
+	'url' => ['controller' => 'tags', 'action' => 'index', 'library' => 'base_tag', 'admin' => true],
+	'weight' => 70
 ]);
 
 ?>
