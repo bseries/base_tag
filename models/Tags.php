@@ -40,7 +40,7 @@ class Tags extends \base_core\models\Base {
 		foreach (static::$_dependent as $model => $unused) {
 			$results = $model::find('tag', [ // always use tag finder
 				'conditions' => [
-					'tag' => $entity->name
+					'tags' => $entity->name
 				]
 			]);
 			if ($type === 'count') {
