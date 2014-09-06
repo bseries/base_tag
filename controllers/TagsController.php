@@ -14,7 +14,7 @@ namespace base_tag\controllers;
 
 use base_tag\models\Tags;
 
-class BannersController extends \base_core\controllers\BaseController {
+class TagsController extends \base_core\controllers\BaseController {
 
 	use \base_core\controllers\AdminAddTrait;
 	use \base_core\controllers\AdminEditTrait;

@@ -17,17 +17,23 @@ $this->set([
 	<?=$this->form->create($item) ?>
 		<?= $this->form->field('id', ['type' => 'hidden']) ?>
 
-		<div class="grid-row grid-row-last">
+		<div class="grid-row">
 			<div class="grid-column-left">
 				<?= $this->form->field('name', ['type' => 'text', 'label' => $t('Name'), 'class' => 'use-for-title']) ?>
 				<?= $this->form->field('title', ['type' => 'text', 'label' => $t('Title')]) ?>
 			</div>
 			<div class="grid-column-right">
+			</div>
+		</div>
+		<div class="grid-row grid-row-last">
+			<div class="grid-column-left">
 				<?= $this->form->field('description', [
 					'type' => 'textarea',
 					'label' => $t('Description'),
 					'wrap' => ['class' => 'body use-editor editor-basic editor-link']
 				]) ?>
+			</div>
+			<div class="grid-column-right">
 			</div>
 		</div>
 		<div class="bottom-actions">
