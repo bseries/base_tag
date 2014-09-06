@@ -8,7 +8,7 @@ $this->set([
 ]);
 
 ?>
-<article class="view-<?= $this->_config['controller'] . '-' . $this->_config['template'] ?>">
+<article class="view-<?= $this->_config['controller'] . '-' . $this->_config['template'] ?> use-list">
 
 	<div class="top-actions">
 		<?= $this->html->link($t('new tag'), ['action' => 'add', 'library' => 'base_tag'], ['class' => 'button add']) ?>
@@ -18,20 +18,26 @@ $this->set([
 		<table>
 			<thead>
 				<tr>
-					<td class="flag"><?= $t('publ.?') ?>
-					<td><?= $t('Name') ?>
-					<td class="emphasize"><?= $t('Title') ?>
-					<td><?= $t('# dependent') ?>
-					<td class="date created"><?= $t('Created') ?>
+					<td data-sort="is-published" class="flag is-published list-sort"><?= $t('publ.?') ?>
+					<td data-sort="name" class="name emphasize list-sort asc"><?= $t('Name') ?>
+					<td data-sort="title" class="title list-sort"><?= $t('Title') ?>
+					<td data-sort="dependent" class="dependent list-sort"><?= $t('# dependent') ?>
+					<td data-sort="created" class="date created list-sort"><?= $t('Created') ?>
 					<td class="actions">
+						<?= $this->form->field('search', [
+							'type' => 'search',
+							'label' => false,
+							'placeholder' => $t('Filter'),
+							'class' => 'list-search'
+						]) ?>
 			</thead>
-			<tbody>
+			<tbody class="list">
 				<?php foreach ($data as $item): ?>
 				<tr>
-					<td class="flag"><?= ($item->is_published ? '✓' : '×') ?>
-					<td><?= $item->name ?>
-					<td class="emphasize"><?= $item->title ?: '–' ?>
-					<td><?= ($depend = $item->depend('count')) ?: '–' ?>
+					<td class="flag is-published"><?= ($item->is_published ? '✓' : '×') ?>
+					<td class="name emphasize"><?= $item->name ?>
+					<td class="title"><?= $item->title ?: '–' ?>
+					<td class="dependent"><?= ($depend = $item->depend('count')) ?: '–' ?>
 					<td class="date created">
 						<time datetime="<?= $this->date->format($item->created, 'w3c') ?>">
 							<?= $this->date->format($item->created, 'date') ?>

@@ -25,7 +25,7 @@ class TagsController extends \base_core\controllers\BaseController {
 
 	public function admin_index() {
 		$data = Tags::find('all', [
-			'order' => ['name' => 'DESC']
+			'order' => ['name' => 'ASC']
 		]);
 		return compact('data');
 	}
@@ -34,7 +34,7 @@ class TagsController extends \base_core\controllers\BaseController {
 		$response = new JSendResponse();
 
 		$data = Tags::find('all', [
-			'order' => ['name' => 'DESC']
+			'order' => ['name' => 'ASC']
 		]);
 		$response->success($data);
 
