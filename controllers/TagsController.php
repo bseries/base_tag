@@ -13,6 +13,7 @@
 namespace base_tag\controllers;
 
 use base_tag\models\Tags;
+use jsend\Response as JSendResponse;
 
 class TagsController extends \base_core\controllers\BaseController {
 
@@ -27,6 +28,20 @@ class TagsController extends \base_core\controllers\BaseController {
 			'order' => ['name' => 'DESC']
 		]);
 		return compact('data');
+	}
+
+	public function admin_api_index() {
+		$response = new JSendResponse();
+
+		$data = Tags::find('all', [
+			'order' => ['name' => 'DESC']
+		]);
+		$response->success($data);
+
+		$this->render([
+			'type' => $this->request->accepts(),
+			'data' => $response->to('array')
+		]);
 	}
 }
 
