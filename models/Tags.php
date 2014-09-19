@@ -32,6 +32,44 @@ class Tags extends \base_core\models\Base {
 		static::$_dependent[$model] = []; // Value reserved for future use.
 	}
 
+	public static function collect() {
+		$tags = [];
+
+		foreach (static::$_dependent as $model => $unused) {
+			$results = $model::find('all', [
+				'fields' =>  ['tags']
+			]);
+			if (!$results) {
+				continue;
+			}
+			// Reduced database calls by prefiltering.
+			foreach ($results as $result) {
+				$tags = array_merge($tags, $result->tags(['serialized' => false]));
+			}
+		}
+		foreach (array_unique($tags) as $tag) {
+			if (Tags::find('count', ['conditions' => ['name' => $tag]])) {
+				continue; // Do not touch existing.
+			}
+			if (!Tags::create(['name' => $tag])->save()) {
+				return false;
+			}
+		}
+		return true;
+	}
+
+	public static function clean() {
+		foreach (Tags::find('all') as $tag) {
+			if ($tag->depend('count')) {
+				continue;
+			}
+			if (!$tag->delete()) {
+				return false;
+			}
+		}
+		return true;
+	}
+
 	// Finds out which other records depend on a given tag entity.
 	// Type can either be count or all.
 	public function depend($entity, $type) {

@@ -14,6 +14,8 @@ namespace base_tag\controllers;
 
 use base_tag\models\Tags;
 use jsend\Response as JSendResponse;
+use lithium\g11n\Message;
+use li3_flash_message\extensions\storage\FlashMessage;
 
 class TagsController extends \base_core\controllers\BaseController {
 
@@ -42,6 +44,36 @@ class TagsController extends \base_core\controllers\BaseController {
 			'type' => $this->request->accepts(),
 			'data' => $response->to('array')
 		]);
+	}
+
+	public function admin_collect() {
+		extract(Message::aliases());
+
+		Tags::pdo()->beginTransaction();
+
+		if ($result = Tags::collect()) {
+			Tags::pdo()->commit();
+			FlashMessage::write($t('Successfully collected tags.'), ['level' => 'success']);
+		} else {
+			Tags::pdo()->rollback();
+			FlashMessage::write($t('Failed to collect tags.'), ['level' => 'error']);
+		}
+		return $this->redirect($this->request->referer());
+	}
+
+	public function admin_clean() {
+		extract(Message::aliases());
+
+		Tags::pdo()->beginTransaction();
+
+		if ($result = Tags::clean()) {
+			Tags::pdo()->commit();
+			FlashMessage::write($t('Successfully cleaned tags.'), ['level' => 'success']);
+		} else {
+			Tags::pdo()->rollback();
+			FlashMessage::write($t('Failed to clean tags.'), ['level' => 'error']);
+		}
+		return $this->redirect($this->request->referer());
 	}
 }
 
