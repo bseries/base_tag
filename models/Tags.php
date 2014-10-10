@@ -94,6 +94,13 @@ class Tags extends \base_core\models\Base {
 		}
 		return $depend;
 	}
+
+	public function title($entity) {
+		if ($entity->title) {
+			return $entity->title;
+		}
+		return preg_replace('/^.*:/', '', $entity->name);
+	}
 }
 
 ?>
