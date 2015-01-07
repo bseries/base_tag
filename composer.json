@@ -10,7 +10,7 @@
     },
     "require": {
         "php": ">=5.5.0",
-        "atelierdisko/base_core": "1.3.*",
+        "atelierdisko/base_core": "1.3.*@dev",
         "davidpersson/li3_behaviors": "1.1.*",
         "atelierdisko/li3_taggable": "1.0.*",
         "atelierdisko/jsend": "0.5.*",
