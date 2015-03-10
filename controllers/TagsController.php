@@ -53,10 +53,14 @@ class TagsController extends \base_core\controllers\BaseController {
 
 		if ($result = Tags::collect()) {
 			Tags::pdo()->commit();
-			FlashMessage::write($t('Successfully collected tags.'), ['level' => 'success']);
+			FlashMessage::write($t('Successfully collected tags.', ['scope' => 'base_tag']), [
+				'level' => 'success'
+			]);
 		} else {
 			Tags::pdo()->rollback();
-			FlashMessage::write($t('Failed to collect tags.'), ['level' => 'error']);
+			FlashMessage::write($t('Failed to collect tags.', ['scope' => 'base_tag']), [
+				'level' => 'error'
+			]);
 		}
 		return $this->redirect($this->request->referer());
 	}
@@ -68,10 +72,14 @@ class TagsController extends \base_core\controllers\BaseController {
 
 		if ($result = Tags::clean()) {
 			Tags::pdo()->commit();
-			FlashMessage::write($t('Successfully cleaned tags.'), ['level' => 'success']);
+			FlashMessage::write($t('Successfully cleaned tags.', ['scope' => 'base_tag']), [
+				'level' => 'success'
+			]);
 		} else {
 			Tags::pdo()->rollback();
-			FlashMessage::write($t('Failed to clean tags.'), ['level' => 'error']);
+			FlashMessage::write($t('Failed to clean tags.', ['scope' => 'base_tag']), [
+				'level' => 'error'
+			]);
 		}
 		return $this->redirect($this->request->referer());
 	}
