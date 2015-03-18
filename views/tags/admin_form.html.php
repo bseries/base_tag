@@ -1,5 +1,11 @@
 <?php
 
+use lithium\g11n\Message;
+
+$t = function($message, array $options = []) {
+	return Message::translate($message, $options + ['scope' => 'base_tag', 'default' => $message]);
+};
+
 $this->set([
 	'page' => [
 		'type' => 'single',

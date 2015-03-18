@@ -1,5 +1,12 @@
 <?php
 
+use lithium\g11n\Message;
+
+$t = function($message, array $options = []) {
+	return Message::translate($message, $options + ['scope' => 'base_tag', 'default' => $message]);
+};
+
+
 $this->set([
 	'page' => [
 		'type' => 'multiple',
@@ -8,7 +15,16 @@ $this->set([
 ]);
 
 ?>
-<article class="view-<?= $this->_config['controller'] . '-' . $this->_config['template'] ?> use-list">
+<article
+	class="use-rich-index"
+	data-endpoint="<?= $this->url([
+		'action' => 'index',
+		'page' => '__PAGE__',
+		'orderField' => '__ORDER_FIELD__',
+		'orderDirection' => '__ORDER_DIRECTION__',
+		'filter' => '__FILTER__'
+	]) ?>"
+>
 
 	<div class="top-actions">
 		<?= $this->html->link($t('delete all unused tags'), ['action' => 'clean', 'library' => 'base_tag'], ['class' => 'button delete']) ?>
@@ -20,29 +36,30 @@ $this->set([
 		<table>
 			<thead>
 				<tr>
-					<td data-sort="is-published" class="flag is-published list-sort"><?= $t('publ.?') ?>
-					<td data-sort="name" class="name emphasize list-sort asc"><?= $t('Name') ?>
-					<td data-sort="title" class="title list-sort"><?= $t('Title') ?>
-					<td data-sort="dependent" class="dependent list-sort"><?= $t('# dependent') ?>
-					<td data-sort="created" class="date created list-sort"><?= $t('Created') ?>
+					<td data-sort="is-published" class="flag is-published table-sort"><?= $t('publ.?') ?>
+					<td data-sort="name" class="name emphasize table-sort asc"><?= $t('Name') ?>
+					<td data-sort="title" class="title table-sort"><?= $t('Title') ?>
+					<td><?= $t('# dependent') ?>
+					<td data-sort="modified" class="date modified table-sort"><?= $t('Modified') ?>
 					<td class="actions">
 						<?= $this->form->field('search', [
 							'type' => 'search',
 							'label' => false,
 							'placeholder' => $t('Filter'),
-							'class' => 'list-search'
+							'class' => 'table-search',
+							'value' => $this->_request->filter
 						]) ?>
 			</thead>
-			<tbody class="list">
+			<tbody>
 				<?php foreach ($data as $item): ?>
 				<tr>
 					<td class="flag is-published"><?= ($item->is_published ? '✓' : '×') ?>
 					<td class="name emphasize"><?= $item->name ?>
 					<td class="title"><?= $item->title ?: '–' ?>
 					<td class="dependent"><?= ($depend = $item->depend('count')) ?: '–' ?>
-					<td class="date created">
-						<time datetime="<?= $this->date->format($item->created, 'w3c') ?>">
-							<?= $this->date->format($item->created, 'date') ?>
+					<td class="date modified">
+						<time datetime="<?= $this->date->format($item->modified, 'w3c') ?>">
+							<?= $this->date->format($item->modified, 'date') ?>
 						</time>
 					<td class="actions">
 						<?= $this->html->link($t('delete'), ['id' => $item->id, 'action' => 'delete', 'library' => 'base_tag'], ['class' => 'button delete']) ?>
@@ -54,4 +71,6 @@ $this->set([
 	<?php else: ?>
 		<div class="none-available"><?= $t('No items available, yet.') ?></div>
 	<?php endif ?>
+
+	<?=$this->view()->render(['element' => 'paging'], compact('paginator'), ['library' => 'base_core']) ?>
 </article>
