@@ -12,6 +12,8 @@
 
 namespace base_tag\models;
 
+use lithium\core\Libraries;
+
 class Tags extends \base_core\models\Base {
 
 	protected static $_actsAs = [
@@ -24,24 +26,29 @@ class Tags extends \base_core\models\Base {
 		]
 	];
 
-	protected static $_dependent = [];
+	protected static function _dependent() {
+		$models = Libraries::locate('models');
+		$results = [];
 
-	// Registers a model that uses and depends on tags. Bindings define
-	// how exactly the model depends on the tags. It is assumed that
-	// each dependent model stores its tags in a _tags_ field and
-	// uses the _Taggable_ behavior.
-	//
-	// ```
-	// Tags::registerDependent('cms_post\models\Posts');
-	// ```
-	public static function registerDependent($model) {
-		static::$_dependent[$model] = []; // Value reserved for future use.
+		foreach ($models as $model) {
+			// Check if we can call hasBehavior() indirectly.
+			if (!is_a($model, '\base_core\models\Base', true)) {
+				continue;
+			}
+			$model::key(); // Hack to activate behaviors.
+
+			if (!$model::hasBehavior('Taggable')) {
+				continue;
+			}
+			$results[] = $model;
+		}
+		return $results;
 	}
 
 	public static function collect() {
 		$tags = [];
 
-		foreach (static::$_dependent as $model => $unused) {
+		foreach (static::_dependent() as $model => $unused) {
 			$results = $model::find('all', [
 				'fields' =>  ['tags']
 			]);
@@ -78,10 +85,12 @@ class Tags extends \base_core\models\Base {
 
 	// Finds out which other records depend on a given tag entity.
 	// Type can either be count or all.
+	//
+	// Do not use in performance criticial parts.
 	public function depend($entity, $type) {
 		$depend = $type === 'count' ? 0 : [];
 
-		foreach (static::$_dependent as $model => $unused) {
+		foreach (static::_dependent() as $model) {
 			$results = $model::find('tag', [ // always use tag finder
 				'conditions' => [
 					'tags' => $entity->name
@@ -106,6 +115,11 @@ class Tags extends \base_core\models\Base {
 			return $entity->title;
 		}
 		return preg_replace('/^.*:/', '', $entity->name);
+	}
+
+	// @deprecated
+	public static function registerDependent($model) {
+		trigger_error("Tags::registerDependent() is deprecated.", E_USER_DEPRECATED);
 	}
 }
 
