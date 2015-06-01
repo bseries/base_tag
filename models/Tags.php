@@ -26,29 +26,10 @@ class Tags extends \base_core\models\Base {
 		]
 	];
 
-	protected static function _dependent() {
-		$models = Libraries::locate('models');
-		$results = [];
-
-		foreach ($models as $model) {
-			// Check if we can call hasBehavior() indirectly.
-			if (!is_a($model, '\base_core\models\Base', true)) {
-				continue;
-			}
-			$model::key(); // Hack to activate behaviors.
-
-			if (!$model::hasBehavior('Taggable')) {
-				continue;
-			}
-			$results[] = $model;
-		}
-		return $results;
-	}
-
 	public static function collect() {
 		$tags = [];
 
-		foreach (static::_dependent() as $model => $unused) {
+		foreach (static::_dependent() as $model) {
 			$results = $model::find('all', [
 				'fields' =>  ['tags']
 			]);
@@ -115,6 +96,25 @@ class Tags extends \base_core\models\Base {
 			return $entity->title;
 		}
 		return preg_replace('/^.*:/', '', $entity->name);
+	}
+
+	protected static function _dependent() {
+		$models = Libraries::locate('models');
+		$results = [];
+
+		foreach ($models as $model) {
+			// Check if we can call hasBehavior() indirectly.
+			if (!is_a($model, '\base_core\models\Base', true)) {
+				continue;
+			}
+			$model::key(); // Hack to activate behaviors.
+
+			if (!$model::hasBehavior('Taggable')) {
+				continue;
+			}
+			$results[] = $model;
+		}
+		return $results;
 	}
 
 	// @deprecated
