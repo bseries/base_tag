@@ -13,7 +13,7 @@
 namespace base_tag\controllers;
 
 use base_tag\models\Tags;
-use jsend\Response as JSendResponse;
+use AD\jsend\Response as JSendResponse;
 use lithium\g11n\Message;
 use li3_flash_message\extensions\storage\FlashMessage;
 
