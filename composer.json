@@ -11,7 +11,7 @@
     "require": {
         "php": ">=5.5.0",
         "atelierdisko/base_core": "1.4.*",
-        "atelierdisko/li3_taggable": "1.2.*@alpha",
+        "atelierdisko/li3_taggable": "1.2.*@dev",
         "atelierdisko/jsend": "1.0.*@beta",
         "unionofrad/lithium": "1.0.*@dev",
         "composer/installers": "1.*@stable"
