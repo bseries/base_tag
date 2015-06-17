@@ -53,7 +53,7 @@ $this->set([
 			<tbody>
 				<?php foreach ($data as $item): ?>
 				<tr>
-					<td class="flag is-published"><?= ($item->is_published ? '✓' : '×') ?>
+					<td class="flag is-published"><i class="material-icons"><?= ($item->is_published ? 'done' : '') ?></i>
 					<td class="name emphasize"><?= $item->name ?>
 					<td class="title"><?= $item->title ?: '–' ?>
 					<td class="dependent"><?= ($depend = $item->depend('count')) ?: '–' ?>
