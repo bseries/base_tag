@@ -29,7 +29,7 @@ $this->set([
 	<div class="top-actions">
 		<?= $this->html->link($t('delete all unused tags'), ['action' => 'clean', 'library' => 'base_tag'], ['class' => 'button delete']) ?>
 		<?= $this->html->link($t('collect tags'), ['action' => 'collect', 'library' => 'base_tag'], ['class' => 'button']) ?>
-		<?= $this->html->link($t('new tag'), ['action' => 'add', 'library' => 'base_tag'], ['class' => 'button add']) ?>
+		<?= $this->html->link($t('tag'), ['action' => 'add', 'library' => 'base_tag'], ['class' => 'button add']) ?>
 	</div>
 
 	<?php if ($data->count()): ?>
