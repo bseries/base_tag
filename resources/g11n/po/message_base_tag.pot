@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: base_tag 1.0\n"
 "Report-Msgid-Bugs-To: info@atelierdisko.de\n"
-"POT-Creation-Date: 2015-03-18 13:22+0100\n"
+"POT-Creation-Date: 2015-07-09 14:41+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: config/panes.php:19
+#: config/panes.php:21
 msgid "Tags"
 msgstr ""
 
@@ -61,15 +61,15 @@ msgstr ""
 msgid "Title"
 msgstr ""
 
-#: views/tags/admin_form.html.php:38
+#: views/tags/admin_form.html.php:37
 msgid "Description"
 msgstr ""
 
-#: views/tags/admin_form.html.php:47 views/tags/admin_index.html.php:59
+#: views/tags/admin_form.html.php:47 views/tags/admin_index.html.php:66
 msgid "publish"
 msgstr ""
 
-#: views/tags/admin_form.html.php:47 views/tags/admin_index.html.php:59
+#: views/tags/admin_form.html.php:47 views/tags/admin_index.html.php:66
 msgid "unpublish"
 msgstr ""
 
@@ -105,14 +105,18 @@ msgstr ""
 msgid "Modified"
 msgstr ""
 
-#: views/tags/admin_index.html.php:58
-msgid "delete"
-msgstr ""
-
-#: views/tags/admin_index.html.php:60
-msgid "open"
+#: views/tags/admin_index.html.php:48
+msgid "Filter"
 msgstr ""
 
 #: views/tags/admin_index.html.php:65
+msgid "delete"
+msgstr ""
+
+#: views/tags/admin_index.html.php:67
+msgid "open"
+msgstr ""
+
+#: views/tags/admin_index.html.php:72
 msgid "No items available, yet."
 msgstr ""
