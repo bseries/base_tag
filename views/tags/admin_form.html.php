@@ -42,11 +42,26 @@ $this->set([
 			<div class="grid-column-right">
 			</div>
 		</div>
+
 		<div class="bottom-actions">
-			<?php if ($item->exists()): ?>
-				<?= $this->html->link($item->is_published ? $t('unpublish') : $t('publish'), ['id' => $item->id, 'action' => $item->is_published ? 'unpublish': 'publish', 'library' => 'base_tag'], ['class' => 'button large']) ?>
-			<?php endif ?>
-			<?= $this->form->button($t('save'), ['type' => 'submit', 'class' => 'large save']) ?>
+			<div class="bottom-actions__left">
+				<?php if ($item->exists()): ?>
+					<?= $this->html->link($t('delete'), [
+						'action' => 'delete', 'id' => $item->id
+					], ['class' => 'button large delete']) ?>
+				<?php endif ?>
+			</div>
+			<div class="bottom-actions__right">
+				<?php if ($item->exists()): ?>
+					<?= $this->html->link($item->is_published ? $t('unpublish') : $t('publish'), ['id' => $item->id, 'action' => $item->is_published ? 'unpublish': 'publish', 'library' => 'base_tag'], ['class' => 'button large']) ?>
+				<?php endif ?>
+
+				<?= $this->form->button($t('save'), [
+					'type' => 'submit',
+					'class' => 'button large save'
+				]) ?>
+			</div>
 		</div>
+
 	<?=$this->form->end() ?>
 </article>

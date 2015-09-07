@@ -62,7 +62,6 @@ $this->set([
 							<?= $this->date->format($item->modified, 'date') ?>
 						</time>
 					<td class="actions">
-						<?= $this->html->link($t('delete'), ['id' => $item->id, 'action' => 'delete', 'library' => 'base_tag'], ['class' => 'button delete']) ?>
 						<?= $this->html->link($item->is_published ? $t('unpublish') : $t('publish'), ['id' => $item->id, 'action' => $item->is_published ? 'unpublish': 'publish', 'library' => 'base_tag'], ['class' => 'button']) ?>
 						<?= $this->html->link($t('open'), ['id' => $item->id, 'action' => 'edit', 'library' => 'base_tag'], ['class' => 'button']) ?>
 				<?php endforeach ?>
