@@ -18,7 +18,6 @@
 namespace base_tag\controllers;
 
 use base_tag\models\Tags;
-use AD\jsend\Response as JSendResponse;
 use lithium\g11n\Message;
 use li3_flash_message\extensions\storage\FlashMessage;
 
@@ -28,22 +27,7 @@ class TagsController extends \base_core\controllers\BaseController {
 	use \base_core\controllers\AdminAddTrait;
 	use \base_core\controllers\AdminEditTrait;
 	use \base_core\controllers\AdminDeleteTrait;
-
 	use \base_core\controllers\AdminPublishTrait;
-
-	public function admin_api_index() {
-		$response = new JSendResponse();
-
-		$data = Tags::find('all', [
-			'order' => ['name' => 'ASC']
-		]);
-		$response->success($data);
-
-		$this->render([
-			'type' => $this->request->accepts(),
-			'data' => $response->to('array')
-		]);
-	}
 
 	public function admin_collect() {
 		extract(Message::aliases());
