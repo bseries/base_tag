@@ -53,7 +53,7 @@ class TagsController extends \base_core\controllers\BaseController {
 
 		Tags::pdo()->beginTransaction();
 
-		if ($result = Tags::clean()) {
+		if (Tags::clean()) {
 			Tags::pdo()->commit();
 			FlashMessage::write($t('Successfully cleaned tags.', ['scope' => 'base_tag']), [
 				'level' => 'success'
