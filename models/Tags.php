@@ -77,7 +77,7 @@ class Tags extends \base_core\models\Base {
 		$depend = $type === 'count' ? 0 : [];
 
 		foreach (static::_dependent() as $model) {
-			$results = $model::find('tag', [ // always use tag finder
+			$results = $model::find($type, [
 				'conditions' => [
 					'tags' => $entity->name
 				]
@@ -86,7 +86,7 @@ class Tags extends \base_core\models\Base {
 				continue;
 			}
 			if ($type === 'count') {
-				$depend += $results->count();
+				$depend += $results;
 			} else {
 				foreach ($results as $result) {
 					$depend[] = $result;
