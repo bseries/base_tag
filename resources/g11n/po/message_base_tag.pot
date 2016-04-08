@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR Atelier Disko
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the base_tag package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 #, fuzzy
@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: base_tag 1.0\n"
 "Report-Msgid-Bugs-To: info@atelierdisko.de\n"
-"POT-Creation-Date: 2015-07-09 14:41+0200\n"
+"POT-Creation-Date: 2016-04-08 12:53+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,23 +17,23 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: config/panes.php:21
+#: config/panes.php:26
 msgid "Tags"
 msgstr ""
 
-#: controllers/TagsController.php:50
+#: controllers/TagsController.php:39
 msgid "Successfully collected tags."
 msgstr ""
 
-#: controllers/TagsController.php:55
+#: controllers/TagsController.php:44
 msgid "Failed to collect tags."
 msgstr ""
 
-#: controllers/TagsController.php:69
+#: controllers/TagsController.php:58
 msgid "Successfully cleaned tags."
 msgstr ""
 
-#: controllers/TagsController.php:74
+#: controllers/TagsController.php:63
 msgid "Failed to clean tags."
 msgstr ""
 
@@ -41,7 +41,7 @@ msgstr ""
 msgid "unnamed"
 msgstr ""
 
-#: views/tags/admin_form.html.php:14
+#: views/tags/admin_form.html.php:14 views/tags/admin_index.html.php:32
 msgid "tag"
 msgstr ""
 
@@ -65,15 +65,19 @@ msgstr ""
 msgid "Description"
 msgstr ""
 
-#: views/tags/admin_form.html.php:47 views/tags/admin_index.html.php:66
+#: views/tags/admin_form.html.php:49
+msgid "delete"
+msgstr ""
+
+#: views/tags/admin_form.html.php:56 views/tags/admin_index.html.php:65
 msgid "publish"
 msgstr ""
 
-#: views/tags/admin_form.html.php:47 views/tags/admin_index.html.php:66
+#: views/tags/admin_form.html.php:56 views/tags/admin_index.html.php:65
 msgid "unpublish"
 msgstr ""
 
-#: views/tags/admin_form.html.php:49
+#: views/tags/admin_form.html.php:59
 msgid "save"
 msgstr ""
 
@@ -87,10 +91,6 @@ msgstr ""
 
 #: views/tags/admin_index.html.php:31
 msgid "collect tags"
-msgstr ""
-
-#: views/tags/admin_index.html.php:32
-msgid "new tag"
 msgstr ""
 
 #: views/tags/admin_index.html.php:39
@@ -109,14 +109,10 @@ msgstr ""
 msgid "Filter"
 msgstr ""
 
-#: views/tags/admin_index.html.php:65
-msgid "delete"
-msgstr ""
-
-#: views/tags/admin_index.html.php:67
+#: views/tags/admin_index.html.php:66
 msgid "open"
 msgstr ""
 
-#: views/tags/admin_index.html.php:72
+#: views/tags/admin_index.html.php:71
 msgid "No items available, yet."
 msgstr ""

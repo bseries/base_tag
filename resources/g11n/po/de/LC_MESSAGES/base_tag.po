@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: base_tag 1.0\n"
 "Report-Msgid-Bugs-To: info@atelierdisko.de\n"
-"POT-Creation-Date: 2015-07-09 14:41+0200\n"
+"POT-Creation-Date: 2016-04-08 12:53+0200\n"
 "PO-Revision-Date: 2015-07-09 14:42+0100\n"
 "Last-Translator: David Persson <davidpersson@gmx.de>\n"
 "Language-Team: none\n"
@@ -18,23 +18,23 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 1.5.7\n"
 
-#: config/panes.php:21
+#: config/panes.php:26
 msgid "Tags"
 msgstr "Tags"
 
-#: controllers/TagsController.php:50
+#: controllers/TagsController.php:39
 msgid "Successfully collected tags."
 msgstr "Tags erfolgreich gesammelt."
 
-#: controllers/TagsController.php:55
+#: controllers/TagsController.php:44
 msgid "Failed to collect tags."
 msgstr "Sammeln der Tags fehlgeschlagen."
 
-#: controllers/TagsController.php:69
+#: controllers/TagsController.php:58
 msgid "Successfully cleaned tags."
 msgstr "Erfolgreich Tags aufgeräumt."
 
-#: controllers/TagsController.php:74
+#: controllers/TagsController.php:63
 msgid "Failed to clean tags."
 msgstr "Aufräumen der Tags fehlgeschlagen."
 
@@ -42,7 +42,7 @@ msgstr "Aufräumen der Tags fehlgeschlagen."
 msgid "unnamed"
 msgstr "unbenannt"
 
-#: views/tags/admin_form.html.php:14
+#: views/tags/admin_form.html.php:14 views/tags/admin_index.html.php:32
 msgid "tag"
 msgstr "Tag"
 
@@ -66,15 +66,19 @@ msgstr "Titel"
 msgid "Description"
 msgstr "Beschreibung"
 
-#: views/tags/admin_form.html.php:47 views/tags/admin_index.html.php:66
+#: views/tags/admin_form.html.php:49
+msgid "delete"
+msgstr "löschen"
+
+#: views/tags/admin_form.html.php:56 views/tags/admin_index.html.php:65
 msgid "publish"
 msgstr "publizieren"
 
-#: views/tags/admin_form.html.php:47 views/tags/admin_index.html.php:66
+#: views/tags/admin_form.html.php:56 views/tags/admin_index.html.php:65
 msgid "unpublish"
 msgstr "depublizieren"
 
-#: views/tags/admin_form.html.php:49
+#: views/tags/admin_form.html.php:59
 msgid "save"
 msgstr "speichern"
 
@@ -89,10 +93,6 @@ msgstr "lösche alle ungenutzten Tags"
 #: views/tags/admin_index.html.php:31
 msgid "collect tags"
 msgstr "Tags sammeln"
-
-#: views/tags/admin_index.html.php:32
-msgid "new tag"
-msgstr "neuer Tag"
 
 #: views/tags/admin_index.html.php:39
 msgid "publ.?"
@@ -110,14 +110,13 @@ msgstr "Bearbeitet"
 msgid "Filter"
 msgstr "Filter"
 
-#: views/tags/admin_index.html.php:65
-msgid "delete"
-msgstr "löschen"
-
-#: views/tags/admin_index.html.php:67
+#: views/tags/admin_index.html.php:66
 msgid "open"
 msgstr "öffnen"
 
-#: views/tags/admin_index.html.php:72
+#: views/tags/admin_index.html.php:71
 msgid "No items available, yet."
 msgstr "Es sind noch keine Element verfügbar."
+
+#~ msgid "new tag"
+#~ msgstr "neuer Tag"
