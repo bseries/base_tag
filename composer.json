@@ -13,7 +13,7 @@
     "require": {
         "atelierdisko/base_core": "1.4.*",
         "atelierdisko/jsend": "1.0.*",
-        "atelierdisko/li3_taggable": "1.3.*",
+        "atelierdisko/li3_taggable": "1.4.*@dev",
         "composer/installers": "1.*@stable",
         "davidpersson/li3_translate": "2.*",
         "php": ">=5.5.0",
