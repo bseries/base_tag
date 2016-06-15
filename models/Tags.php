@@ -31,6 +31,17 @@ class Tags extends \base_core\models\Base {
 		]
 	];
 
+	public static function init() {
+		if (PROJECT_LOCALE !== PROJECT_LOCALES) {
+			static::bindBehavior('li3_translate\extensions\data\behavior\Translatable', [
+				'fields' => ['title', 'description'],
+				'locale' => PROJECT_LOCALE,
+				'locales' => explode(' ', PROJECT_LOCALES),
+				'strategy' => 'inline'
+			]);
+		}
+	}
+
 	public static function collect() {
 		$tags = [];
 
@@ -96,6 +107,8 @@ class Tags extends \base_core\models\Base {
 		return $depend;
 	}
 
+	// When no title is set falls back to name. Will strip
+	// NS from name if exists.
 	public function title($entity) {
 		if ($entity->title) {
 			return $entity->title;
@@ -127,5 +140,7 @@ class Tags extends \base_core\models\Base {
 		trigger_error("Tags::registerDependent() is deprecated.", E_USER_DEPRECATED);
 	}
 }
+
+Tags::init()
 
 ?>
