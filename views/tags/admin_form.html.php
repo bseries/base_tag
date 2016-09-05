@@ -28,18 +28,44 @@ $this->set([
 		<div class="grid-row">
 			<div class="grid-column-left">
 				<?= $this->form->field('name', ['type' => 'text', 'label' => $t('Name'), 'class' => 'use-for-title']) ?>
-				<?= $this->form->field('title', ['type' => 'text', 'label' => $t('Title')]) ?>
+				<?php if ($isTranslated): ?>
+					<?php foreach ($item->translate('title') as $locale => $value): ?>
+						<?= $this->form->field("i18n.title.{$locale}", [
+							'type' => 'text',
+							'label' => $t('Title') . ' (' . $this->g11n->name($locale) . ')',
+							'class' => $locale === PROJECT_LOCALE ? 'use-for-title' : null,
+							'value' => $value
+						]) ?>
+					<?php endforeach ?>
+				<?php else: ?>
+					<?= $this->form->field('title', [
+						'type' => 'text',
+						'label' => $t('Title'),
+						'class' => 'use-for-title'
+					]) ?>
+				<?php endif ?>
 			</div>
 			<div class="grid-column-right">
 			</div>
 		</div>
 		<div class="grid-row">
 			<div class="grid-column-left">
-				<?= $this->editor->field('description', [
-					'label' => $t('Description'),
-					'size' => 'beta',
-					'features' => 'minimal'
-				]) ?>
+				<?php if ($isTranslated): ?>
+					<?php foreach ($item->translate('description') as $locale => $value): ?>
+						<?= $this->editor->field("i18n.description.{$locale}", [
+							'label' => $t('Description') . ' (' . $this->g11n->name($locale) . ')',
+							'size' => 'gamma',
+							'features' => 'minimal',
+							'value' => $value
+						]) ?>
+					<?php endforeach ?>
+				<?php else: ?>
+					<?= $this->editor->field('description', [
+						'label' => $t('Description'),
+						'size' => 'gamma',
+						'features' => 'minimal'
+					]) ?>
+				<?php endif ?>
 			</div>
 			<div class="grid-column-right">
 			</div>
