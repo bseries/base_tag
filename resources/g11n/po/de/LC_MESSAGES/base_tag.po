@@ -116,7 +116,7 @@ msgstr "öffnen"
 
 #: views/tags/admin_index.html.php:71
 msgid "No items available, yet."
-msgstr "Es sind noch keine Element verfügbar."
+msgstr "Es sind noch keine Einträge verfügbar."
 
 #~ msgid "new tag"
 #~ msgstr "neuer Tag"
