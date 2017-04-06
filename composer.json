@@ -11,7 +11,7 @@
         }
     ],
     "require": {
-        "atelierdisko/base_core": "1.5.*",
+        "atelierdisko/base_core": "1.5.*@dev",
         "atelierdisko/jsend": "1.0.*",
         "atelierdisko/li3_taggable": "1.4.*@dev",
         "composer/installers": "1.*@stable",
