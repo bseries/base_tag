@@ -15,7 +15,7 @@
         "atelierdisko/jsend": "1.0.*",
         "atelierdisko/li3_taggable": "^1.4@stable || 1.5.*@dev",
         "composer/installers": "1.*@stable",
-        "davidpersson/li3_translate": "2.* || 2.1.0@dev",
+        "davidpersson/li3_translate": "^2.1@dev",
         "php": "^5.5 || ^7.0",
         "unionofrad/lithium": "^1.1"
     },
