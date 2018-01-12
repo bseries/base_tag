@@ -9,9 +9,10 @@
 
 namespace base_tag\controllers;
 
+use base_core\security\Gate;
 use base_tag\models\Tags;
-use lithium\g11n\Message;
 use li3_flash_message\extensions\storage\FlashMessage;
+use lithium\g11n\Message;
 
 class TagsController extends \base_core\controllers\BaseController {
 
@@ -42,6 +43,13 @@ class TagsController extends \base_core\controllers\BaseController {
 
 	public function admin_clean() {
 		extract(Message::aliases());
+
+		if (!Gate::checkRight('clean')) {
+			FlashMessage::write($t('Missing rights for this action.', ['scope' => 'base_tag']), [
+				'level' => 'error'
+			]);
+			return $this->redirect($this->request->referer());
+		}
 
 		Tags::pdo()->beginTransaction();
 

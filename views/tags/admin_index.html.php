@@ -1,5 +1,6 @@
 <?php
 
+use base_core\security\Gate;
 use lithium\g11n\Message;
 
 $t = function($message, array $options = []) {
@@ -27,7 +28,13 @@ $this->set([
 >
 
 	<div class="top-actions">
-		<?= $this->html->link($t('delete all unused tags'), ['action' => 'clean', 'library' => 'base_tag'], ['class' => 'button delete']) ?>
+		<?php if (Gate::checkRight('clean')): ?>
+			<?= $this->html->link(
+				$t('delete all unused tags'),
+				['action' => 'clean'],
+				['class' => 'button delete']
+			) ?>
+		<?php endif ?>
 		<?= $this->html->link($t('collect tags'), ['action' => 'collect', 'library' => 'base_tag'], ['class' => 'button']) ?>
 		<?= $this->html->link($t('tag'), ['action' => 'add', 'library' => 'base_tag'], ['class' => 'button add']) ?>
 	</div>
