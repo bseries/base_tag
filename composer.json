@@ -6,10 +6,10 @@
     "require": {
         "bseries/base_core": "1.5.*@dev",
         "atelierdisko/jsend": "1.0.*",
-        "atelierdisko/li3_taggable": "^1.4@stable || 1.5.*@dev",
+        "atelierdisko/li3_taggable": "^1.4@stable || 1.6.*@alpha",
         "composer/installers": "1.*@stable",
         "davidpersson/li3_translate": "^2.1@dev",
         "php": "^5.5 || ^7.0",
-        "unionofrad/lithium": "^1.1"
+        "unionofrad/lithium": "^1.2"
     }
 }
