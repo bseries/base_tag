@@ -4,7 +4,7 @@
     "type": "lithium-library",
     "license": ["BSD-3-Clause"],
     "require": {
-        "bseries/base_core": "1.5.*@dev",
+        "bseries/base_core": "^1.5",
         "atelierdisko/jsend": "1.0.*",
         "atelierdisko/li3_taggable": "^1.4@stable || 1.6.*@alpha",
         "composer/installers": "1.*@stable",
