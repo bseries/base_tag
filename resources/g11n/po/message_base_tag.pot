@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: base_tag 1.0\n"
 "Report-Msgid-Bugs-To: info@atelierdisko.de\n"
-"POT-Creation-Date: 2016-04-08 12:53+0200\n"
+"POT-Creation-Date: 2018-07-12 12:51+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,16 +17,20 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: config/panes.php:26
+#: config/panes.php:18
 msgid "Tags"
 msgstr ""
 
-#: controllers/TagsController.php:39
+#: controllers/TagsController.php:32
 msgid "Successfully collected tags."
 msgstr ""
 
-#: controllers/TagsController.php:44
+#: controllers/TagsController.php:37
 msgid "Failed to collect tags."
+msgstr ""
+
+#: controllers/TagsController.php:48
+msgid "Missing rights for this action."
 msgstr ""
 
 #: controllers/TagsController.php:58
@@ -41,7 +45,7 @@ msgstr ""
 msgid "unnamed"
 msgstr ""
 
-#: views/tags/admin_form.html.php:14 views/tags/admin_index.html.php:32
+#: views/tags/admin_form.html.php:14 views/tags/admin_index.html.php:39
 msgid "tag"
 msgstr ""
 
@@ -53,66 +57,67 @@ msgstr ""
 msgid "unpublished"
 msgstr ""
 
-#: views/tags/admin_form.html.php:28 views/tags/admin_index.html.php:40
+#: views/tags/admin_form.html.php:30 views/tags/admin_index.html.php:47
 msgid "Name"
 msgstr ""
 
-#: views/tags/admin_form.html.php:29 views/tags/admin_index.html.php:41
+#: views/tags/admin_form.html.php:35 views/tags/admin_form.html.php:43
+#: views/tags/admin_index.html.php:48
 msgid "Title"
 msgstr ""
 
-#: views/tags/admin_form.html.php:37
+#: views/tags/admin_form.html.php:56 views/tags/admin_form.html.php:64
 msgid "Description"
 msgstr ""
 
-#: views/tags/admin_form.html.php:49
+#: views/tags/admin_form.html.php:77
 msgid "delete"
 msgstr ""
 
-#: views/tags/admin_form.html.php:56 views/tags/admin_index.html.php:65
+#: views/tags/admin_form.html.php:84 views/tags/admin_index.html.php:72
 msgid "publish"
 msgstr ""
 
-#: views/tags/admin_form.html.php:56 views/tags/admin_index.html.php:65
+#: views/tags/admin_form.html.php:84 views/tags/admin_index.html.php:72
 msgid "unpublish"
 msgstr ""
 
-#: views/tags/admin_form.html.php:59
+#: views/tags/admin_form.html.php:87
 msgid "save"
 msgstr ""
 
-#: views/tags/admin_index.html.php:13
+#: views/tags/admin_index.html.php:14
 msgid "tags"
 msgstr ""
 
-#: views/tags/admin_index.html.php:30
+#: views/tags/admin_index.html.php:33
 msgid "delete all unused tags"
 msgstr ""
 
-#: views/tags/admin_index.html.php:31
+#: views/tags/admin_index.html.php:38
 msgid "collect tags"
 msgstr ""
 
-#: views/tags/admin_index.html.php:39
+#: views/tags/admin_index.html.php:46
 msgid "publ.?"
 msgstr ""
 
-#: views/tags/admin_index.html.php:42
+#: views/tags/admin_index.html.php:49
 msgid "# dependent"
 msgstr ""
 
-#: views/tags/admin_index.html.php:43
+#: views/tags/admin_index.html.php:50
 msgid "Modified"
 msgstr ""
 
-#: views/tags/admin_index.html.php:48
+#: views/tags/admin_index.html.php:55
 msgid "Filter"
 msgstr ""
 
-#: views/tags/admin_index.html.php:66
+#: views/tags/admin_index.html.php:73
 msgid "open"
 msgstr ""
 
-#: views/tags/admin_index.html.php:71
+#: views/tags/admin_index.html.php:78
 msgid "No items available, yet."
 msgstr ""
